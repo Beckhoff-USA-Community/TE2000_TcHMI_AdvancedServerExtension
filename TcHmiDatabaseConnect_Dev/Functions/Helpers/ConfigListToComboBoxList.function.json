@@ -1,0 +1,30 @@
+﻿{
+  "function": {
+    "name": "ConfigListToComboBoxList",
+    "namespace": "TcHmi.Functions.TcHmiDatabaseConnect_Dev",
+    "displayName": "ConfigListToComboBoxList",
+    "description": "",
+    "waitMode": "Synchronous",
+    "category": "",
+    "returnValue": {
+      "type": "tchmi:general#/definitions/String"
+    },
+    "visible": true,
+    "injectContextObject": false,
+    "arguments": [
+      {
+        "name": "ConfigEntry_List",
+        "displayName": "ConfigEntry_List",
+        "type": "tchmi:general#/definitions/Array",
+        "description": "A config entry that is an array of items",
+        "defaultValue": null,
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      }
+    ]
+  },
+  "$schema": "../.hmiframework/Schema/FunctionDescription.Schema.json"
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "Language.Schema.json",
+  "locale": "en",
+    "localizedText": {
+        "MESSAGE_INIT": "Initializing extension SQLiteConnector succeeded.",
+        "MESSAGE_CONNECTIONS_INIT": "Initializing SQLite connection handler symbols succeeded.",
+        "ERROR_INIT": "Initializing extension SQLiteConnector failed. Additional information: {0}",
+
+        "MESSAGE_SHUTDOWN": "Shutdown extension SQLiteConnector succeeded.",
+        "ERROR_SHUTDOWN": "Shutdown extension SQLiteConnector failed. Additional information: {0}",
+        "QUERY_SUCCESS": "The query was completed sucessfully!",
+
+        "ERROR_REQUEST": "Request failed! Additional information: {0}",
+        "ERROR_CALL_COMMAND": "Calling command '{0}' failed! Additional information: {1}",
+        "ERROR_CONNECTIONS_INIT": "Error initilizing server config. Reason: {0}, Cause: {1}",
+        "ERROR_DUPE_CONFIG": "Duplicate database target found in new config entry prevented. Entry: '{0}'",
+        "ERROR_INVALID_CONNECTION": "Invalid connection string. Entry: '{0}'",
+        "ERROR_DATABASE_QUERY": "The database query failed with exception {0}",
+
+        "ERROR_DATABASE_CHANGE": "The database config change is invalid",
+
+        "ERROR_INVALID_DATABASE_NAME": "The entered database name cannot be null or empty",
+
+        "DESC_DATABASES": "List of database names to generate and read/write to",
+        "DESC_DATABASE": "Database name to read/write to",
+        "DATABASES": "Databases",
+        "DATABASE": "Database",
+        "TOOLTIP_SQLCONNECTIONSTRINGS": "valid SQL connection strings",
+
+        "CONFIGENTRY": "Example Config Entry",
+        "DESC_CONFIGENTRY": "Example Config Entry Description",
+        "TOOLTIP_CONFIGENTRY": "Example Config Entry Tooltip",
+
+        "databaseCount": "Database Count",
+        "queryCount": "Query Count",
+        "TOOLTIP_queryCount": "Total SQLite queries during uptime"
+
+    }
+}

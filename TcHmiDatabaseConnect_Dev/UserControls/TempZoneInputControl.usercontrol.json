@@ -1,0 +1,43 @@
+﻿{
+  "parameters": [
+    {
+      "name": "data-tchmi-zonename",
+      "displayName": "zonename",
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "Common",
+      "description": "",
+      "defaultValue": "Zone 1",
+      "defaultValueInternal": "Zone 1",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "zonename",
+      "propertySetterName": "setZonename",
+      "propertyGetterName": "getZonename",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-temperature",
+      "displayName": "temperature",
+      "visible": true,
+      "type": "tchmi:general#/definitions/FLOAT",
+      "category": "Common",
+      "description": "",
+      "defaultValue": 42.1,
+      "defaultValueInternal": 42.1,
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "temperature",
+      "propertySetterName": "setTemperature",
+      "propertyGetterName": "getTemperature",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.746.3/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

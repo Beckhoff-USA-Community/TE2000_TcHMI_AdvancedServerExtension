@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "additionalProperties": false,
+    "definitions": {
+        
+    },
+    "properties": {
+        "DATABASES": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "configDescription": "DESC_DATABASE"
+            },
+            "hidden": false,
+            "default": [ "ExampleDatabaseName" ],
+            "configDescription": "DESC_DATABASES",
+            "additionalItems": {
+                "configDescription": "DESC_DATABASES"
+            }
+        },
+        "CONFIGENTRY": {
+            "type": "integer",
+            "configDescription": "DESC_CONFIGENTRY",
+            "title": "DESC_CONFIGENTRY",
+            "hidden": false,
+            "default": 0,
+            "displayClass": "Primitive Config Entry"
+        }
+
+    }
+
+}

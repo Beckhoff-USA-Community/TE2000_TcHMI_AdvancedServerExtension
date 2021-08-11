@@ -1,0 +1,54 @@
+﻿{
+  "function": {
+    "name": "M_WriteEntry",
+    "namespace": "TcHmi.Functions.TcHmiDatabaseConnect_Dev",
+    "displayName": "M_WriteEntry",
+    "description": "",
+    "waitMode": "Synchronous",
+    "category": "Database",
+    "returnValue": {
+      "type": "tchmi:general#/definitions/String"
+    },
+    "visible": true,
+    "injectContextObject": false,
+    "arguments": [
+      {
+        "name": "TargetDatabaseHandler",
+        "displayName": "TargetDatabaseHandler",
+        "type": "tchmi:general#/definitions/String",
+        "description": "",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      },
+      {
+        "name": "zonename",
+        "displayName": "Zone Name",
+        "type": "tchmi:general#/definitions/String",
+        "description": "",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      },
+      {
+        "name": "temperature",
+        "displayName": "Temperature",
+        "type": "tchmi:general#/definitions/String",
+        "description": "",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      }
+    ]
+  },
+  "$schema": "../.hmiframework/Schema/FunctionDescription.Schema.json"
+}

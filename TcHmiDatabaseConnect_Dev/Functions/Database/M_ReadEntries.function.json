@@ -1,0 +1,42 @@
+﻿{
+  "function": {
+    "name": "M_ReadEntries",
+    "namespace": "TcHmi.Functions.TcHmiDatabaseConnect_Dev",
+    "displayName": "M_ReadEntries",
+    "description": "",
+    "waitMode": "Synchronous",
+    "category": "Database",
+    "returnValue": {
+      "type": "tchmi:general#/definitions/String"
+    },
+    "visible": true,
+    "injectContextObject": false,
+    "arguments": [
+      {
+        "name": "TargetDatabaseHandler",
+        "displayName": "TargetDatabaseHandler",
+        "type": "tchmi:general#/definitions/String",
+        "description": "",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      },
+      {
+        "name": "TargetDataGrid",
+        "displayName": "TargetDataGrid",
+        "type": "tchmi:framework#/definitions/Id",
+        "description": "The target datagrid to return the values to",
+        "defaultValue": "\"\"",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      }
+    ]
+  },
+  "$schema": "../.hmiframework/Schema/FunctionDescription.Schema.json"
+}

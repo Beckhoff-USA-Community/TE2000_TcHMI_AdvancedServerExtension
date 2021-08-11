@@ -1,0 +1,102 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+	<RuntimeIdentifier>win10-x64</RuntimeIdentifier>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <Import Sdk="Microsoft.NET.Sdk" Project="Sdk.targets" />
+
+  <PropertyGroup Label="TwinCatHMI">
+    <TcHmiExtensionTypes>{165402F8-2FAD-480A-BCE3-D718A6135931}</TcHmiExtensionTypes>
+    <TcHmiTargetFramework>$(TargetFramework)</TcHmiTargetFramework>
+    <TcHmiTargetFramework Condition="'$(TcHmiTargetFramework)'==''">netcoreapp</TcHmiTargetFramework>
+    <TcHmiPlatformTarget>$(PlatformTarget)</TcHmiPlatformTarget>
+    <TcHmiPlatformTarget Condition="'$(TcHmiPlatformTarget)'==''">AnyCPU</TcHmiPlatformTarget>
+    <TcHmiConfiguration>$(Configuration)</TcHmiConfiguration>
+    <TcHmiServerApiVersion>1.0.0.0</TcHmiServerApiVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <TcHmiDirectory>$(TWINCAT3DIR)\..\Functions\TE2000-HMI-Engineering</TcHmiDirectory>
+    <TwinCATHmi_Tasks>$(TcHmiDirectory)\MSBuild\Beckhoff.TwinCAT.HMI.tasks</TwinCATHmi_Tasks>
+    <TwinCATHmi_Targets>$(TcHmiDirectory)\MSBuild\Beckhoff.TwinCAT.HMI.targets</TwinCATHmi_Targets>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ProjectGuid>86ee8a0d-2c65-4095-bfa4-39c8c7070388</ProjectGuid>
+    <TcHmiInstallationDir>$(TcHmiDirectory)\</TcHmiInstallationDir>
+    <TcHmiServerVersion>Latest</TcHmiServerVersion>
+  </PropertyGroup>
+
+  <Import Project="$(TwinCATHmi_Tasks)" />
+  <Import Project="$(TwinCATHmi_Targets)" />
+
+  <PropertyGroup>
+    <PostBuildEvent>
+      IF NOT EXIST "$(TargetDir)" ( mkdir "$(TargetDir)" )
+      xcopy /y /r "$(ProjectDir)config\*.json" "$(TargetDir)"
+    </PostBuildEvent>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="ConfigValidators.cs" />
+    <Compile Include="Diagnostics\Diagnostics.cs" />
+    <Compile Include="Inventory\TempZoneEntry.cs" />
+    <Compile Include="Inventory\SqlConnection.cs" />
+    <Compile Include="Inventory\SqlConnectionSymbol.cs" />
+    <Compile Include="SQLiteConnector.cs" />
+    <Compile Include="ExtensionErrorValue.cs" />
+    <Compile Include="StringConstants.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ServerExtensionCSharpDotNetCore.ico" />
+    <None Remove="config\ExtensionSettings.Schema.json" />
+    <None Remove="config\Language.Schema.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="5.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="TcHmiSrvExtNet.Core">
+      <HintPath>..\..\..\..\..\..\..\TwinCAT\Functions\TE2000-HMI-Engineering\Infrastructure\TcHmiServer\Latest\win-x64\API\1.3.0.0\netcoreapp3.1\TcHmiSrvExtNet.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuildEvent" Condition="'$(PostBuildEvent)' != '' and ('$(RunPostBuildEvent)'=='Always' or '$(RunPostBuildEvent)'=='OnOutputUpdated')" DependsOnTargets="$(PostBuildEventDependsOn)">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" />
+  </Target>
+  <Target Name="BeforeBuild">
+    <TcHmiMSBuild.Extensions.TcHmiBuild TaskAction="UpdateConfigVersion" ProjectDirectory="$(ProjectDir)" />
+  </Target>
+  <Target Name="AfterBuild">
+    <TcHmiMSBuild.Extensions.TcHmiBuild TaskAction="AddKeyValue" Key="dotNetTargetFramework" Value="$(TcHmiTargetFramework)" ProjectDirectory="$(ProjectDir)" OutputPath="$(TargetDir)" />
+    <TcHmiMSBuild.Extensions.TcHmiBuild TaskAction="AddKeyValue" Key="dotNetPlatformTarget" Value="$(TcHmiPlatformTarget)" ProjectDirectory="$(ProjectDir)" OutputPath="$(TargetDir)" />
+    <TcHmiMSBuild.Extensions.TcHmiBuild TaskAction="AddKeyValue" Key="dotNetConfiguration" Value="$(TcHmiConfiguration)" ProjectDirectory="$(ProjectDir)" OutputPath="$(TargetDir)" />
+    <TcHmiMSBuildPkgMgt.TcHmiBuild TaskAction="Pack" OutputPath="$(TargetDir)" ProjectName="$(ProjectName)" ProjectGuid="$(ProjectGuid)" ProjectDirectory="$(ProjectDir)" ProjectType="6" />
+  </Target>
+  <Target Name="AfterClean" AfterTargets="Clean">
+    <RemoveDir Directories="$(TargetDir)" />
+    <RemoveDir Directories="$(BaseIntermediateOutputPath)$(Configuration)" />
+  </Target>
+</Project>
