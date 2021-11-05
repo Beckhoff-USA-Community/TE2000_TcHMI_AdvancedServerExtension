@@ -2,9 +2,9 @@
   <div id="ViewDesktopBeckhoffLogo" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-src="Images/Beckhoff_Logo.svg" data-tchmi-left="20" data-tchmi-top="20" data-tchmi-width="194" data-tchmi-height="57">
 
   </div>
-<div id="SampleDescription" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="67" data-tchmi-height-unit="px" data-tchmi-left="224" data-tchmi-left-unit="px" data-tchmi-text="This sample server extension will generate a new SQLite .db file. TE2000 in the .engineering_server folder, TF2000 in the service project directory folder. The generated database file name comes from the SQLiteConnector server json config file. On startup the config entries are checked and if an entry is present but no DB file is, a new one is created. Each database gets its own symbol thanks to the Dynamic Symbols API in the extension." data-tchmi-top="20" data-tchmi-top-unit="px" data-tchmi-width="638" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="px">
+<div id="SampleDescription" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="80" data-tchmi-height-unit="px" data-tchmi-left="224" data-tchmi-left-unit="px" data-tchmi-text="This sample server extension will generate a new SQLite .db file. TE2000 in the .engineering_server folder, TF2000 in the service project directory folder. The generated database file name comes from the SQLiteConnector server json config file. On startup the config entries are checked and if an entry is present but no DB file is, a new one is created. Each database gets its own symbol thanks to the Dynamic Symbols API in the extension." data-tchmi-top="20" data-tchmi-top-unit="px" data-tchmi-width="781" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="px" data-tchmi-text-font-size="14">
 </div>
-<div id="TcHmiRegion" data-tchmi-type="TcHmi.Controls.System.TcHmiRegion" data-tchmi-height="371" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-top="153" data-tchmi-top-unit="px" data-tchmi-width="985" data-tchmi-width-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-target-content="Content/Main.content">
+<div id="TcHmiRegion" data-tchmi-type="TcHmi.Controls.System.TcHmiRegion" data-tchmi-height="371" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-top="160" data-tchmi-top-unit="px" data-tchmi-width="985" data-tchmi-width-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-target-content="Content/Main.content">
 
 <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
 {
@@ -28,7 +28,7 @@
 }
 </script>
 </div>
-<div id="TcHmiEventLine" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEventLine" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-server-interval="1000" data-tchmi-top="108" data-tchmi-top-unit="px" data-tchmi-width="745" data-tchmi-width-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="px" data-tchmi-target-region="%ctrl%TcHmiRegion%/ctrl%" data-tchmi-target-content="Content/Events.content">
+<div id="TcHmiEventLine" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEventLine" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-server-interval="1000" data-tchmi-top="115" data-tchmi-top-unit="px" data-tchmi-width="985" data-tchmi-width-unit="px" data-tchmi-right-unit="px" data-tchmi-bottom-unit="px" data-tchmi-text-font-size-unit="px" data-tchmi-target-region="%ctrl%TcHmiRegion%/ctrl%" data-tchmi-target-content="Content/Events.content">
 <script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
 [
   {

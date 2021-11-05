@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace SQLiteConnector
 {
@@ -29,6 +30,7 @@ namespace SQLiteConnector
         private readonly object _TempZoneEntryLock = new object();
         private TempZoneEntry _TempZoneEntry = new TempZoneEntry();
 
+        [JsonIgnore]
         public TempZoneEntry TempZoneEntry
         {
             get

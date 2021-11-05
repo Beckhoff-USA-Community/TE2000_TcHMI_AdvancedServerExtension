@@ -3,11 +3,24 @@ using System.Collections.Generic;
 using System.Text;
 using TcHmiSrv.Core;
 using Newtonsoft.Json;
+using System.Runtime.CompilerServices;
 using Newtonsoft.Json.Schema;
 
 
 namespace SQLiteConnector
 {
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
+    public class CustomAttribute : Attribute
+    {
+        public CustomAttribute(string value)
+        {
+            this.value = value;
+        }
+        public string value { get; set; }
+    }
+
+
+
     public class TempZoneEntry
     {
 
@@ -28,6 +41,8 @@ namespace SQLiteConnector
 
 
         private string _zonename;
+
+        [Custom("test")]
         public string zonename
         {
             get

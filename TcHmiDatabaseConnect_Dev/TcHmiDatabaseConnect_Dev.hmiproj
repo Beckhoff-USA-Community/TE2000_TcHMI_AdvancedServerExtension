@@ -12,7 +12,7 @@
     <HmiTitle>Please enter your Title...</HmiTitle>
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
-    <HmiCommunicationServerPort>3003</HmiCommunicationServerPort>
+    <HmiCommunicationServerPort>3004</HmiCommunicationServerPort>
     <HmiLogTcHmiServerMessages>false</HmiLogTcHmiServerMessages>
     <HmiLogDesignerModeComMessages>false</HmiLogDesignerModeComMessages>
     <HmiServerVersion>Latest</HmiServerVersion>
@@ -24,9 +24,9 @@
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
     <Name>TcHmiDatabaseConnect_Dev1</Name>
     <HmiCommunicationRouterPort>10117</HmiCommunicationRouterPort>
-    <HmiCommunicationServerAuthPort>13002</HmiCommunicationServerAuthPort>
+    <HmiCommunicationServerAuthPort>13003</HmiCommunicationServerAuthPort>
     <HmiInitial>1.12.742.5</HmiInitial>
-    <HmiRecent>1.12.748.0</HmiRecent>
+    <HmiRecent>1.12.750.1</HmiRecent>
     <HmiServerNodeAdvancedView>False</HmiServerNodeAdvancedView>
   </PropertyGroup>
   <PropertyGroup>
@@ -187,7 +187,9 @@
     <Folder Include="UserControls" />
     <Folder Include="Themes" />
     <Folder Include="Themes\Base\" />
-    <Folder Include="Server" />
+    <Folder Include="Server">
+      <WorkingDirectory>TcHmiDatabaseConnect_Dev</WorkingDirectory>
+    </Folder>
     <Folder Include="Properties" />
     <Content Include=".eslintrc.json">
       <Visible>false</Visible>

@@ -1,5 +1,5 @@
 ﻿{
-  "$schema": "../../Packages/Beckhoff.TwinCAT.HMI.Framework-12.748.0/runtimes/native1.12-tchmi/Schema/TchmiConfig.Schema.json",
+  "$schema": "./../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.750.1/runtimes/native1.12-tchmi/Schema/TchmiConfig.Schema.json",
   "basePath": "./framework",
   "scaleMode": "None",
   "startupView": "Desktop.view",
@@ -18,6 +18,11 @@
           "name": "Themes/Base/BaseStyle.css",
           "description": "",
           "type": "Stylesheet"
+        },
+        {
+          "name": "Themes/Base/Base.theme",
+          "description": "",
+          "type": "ThemedValues"
         }
       ],
       "replacesThemeForControls": []
@@ -54,12 +59,14 @@
     {
       "url": "Content/Events.content",
       "preload": false,
-      "keepAlive": false
+      "keepAlive": false,
+      "loadSync": false
     },
     {
       "url": "Content/Main.content",
       "preload": false,
-      "keepAlive": false
+      "keepAlive": false,
+      "loadSync": false
     }
   ],
   "views": [
@@ -86,12 +93,11 @@
   "trigger": [],
   "actionTemplates": [],
   "languages": {
-    "de-DE": "Localization\\de-DE.localization",
-    "en-US": "Localization\\en-US.localization"
+    "de-DE": "Localization/de-DE.localization",
+    "en-US": "Localization/en-US.localization"
   },
   "languageFallback": "",
   "disableLoadingOptimization": false,
-  "tcSpeech": {},
   "creatorSettings": {
     "viewport": {
       "defaultWidth": 800,
@@ -114,5 +120,14 @@
       "name": "Beckhoff.TwinCAT.HMI.Functions",
       "basePath": "/Beckhoff.TwinCAT.HMI.Functions"
     }
-  ]
+  ],
+  "keyboardLayouts": [
+    {
+      "url": "KeyboardLayouts/German - compact.keyboard.json"
+    },
+    {
+      "url": "KeyboardLayouts/US - compact.keyboard.json"
+    }
+  ],
+  "tcSpeech": {}
 }

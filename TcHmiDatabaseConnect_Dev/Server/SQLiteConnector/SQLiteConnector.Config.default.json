@@ -1,6 +1,7 @@
 {
     "CONFIGENTRY": 0,
     "DATABASES": [
-        "ExampleDatabaseName"
+        "ExampleDatabaseName",
+        "NewDatabase"
     ]
 }

@@ -2,7 +2,7 @@
   "$schema": "ExtensionSettings.Schema.json",
   "guid": "86ee8a0d-2c65-4095-bfa4-39c8c7070388",
   "version": "1.0.0.0",
-  "configVersion": "1.0.0.43",
+  "configVersion": "1.0.0.50",
   "symbols": {
     "ListSymbols": {
       "readValue": {
@@ -20,8 +20,9 @@
       }
     },
     "Diagnostics": {
+      "hidden": false,
       "readValue": {
-        "function": false,
+        "function": true,
         "type": "object",
         "readOnly": true,
         "transient": true,
@@ -35,11 +36,21 @@
             "propertyOrder": 2,
             "readOnly": true,
             "type": "integer"
+          },
+          "cpuUsage": {
+            "type": "number",
+            "readOnly": true,
+            "propertyOrder": 1,
+            "displayClass": "%"
+          },
+          "sinceStartup": {
+            "propertyOrder": 2,
+            "readOnly": true,
+            "type": "string",
+            "format": "timespan"
           }
-        },
-        "additionalProperties": false
-      },
-      "automap": true
+        }
+      }
     }
   }
 }

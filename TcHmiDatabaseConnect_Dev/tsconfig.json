@@ -28,9 +28,9 @@
     "bin/"
   ],
   "include": [
-    "../Packages/Beckhoff.TwinCAT.HMI.Framework.12.748.0/runtimes/native1.12-tchmi/TcHmi.d.ts",
-    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.748.0/runtimes/native1.12-tchmi/TcHmiDatagrid/TcHmiDatagrid.d.ts",
-    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.748.0/runtimes/native1.12-tchmi/TcHmiCombobox/TcHmiCombobox.d.ts"
+    "../Packages/Beckhoff.TwinCAT.HMI.Framework.12.750.1/runtimes/native1.12-tchmi/TcHmi.d.ts",
+    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.750.1/runtimes/native1.12-tchmi/TcHmiDatagrid/TcHmiDatagrid.d.ts",
+    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.750.1/runtimes/native1.12-tchmi/TcHmiCombobox/TcHmiCombobox.d.ts"
   ],
   "files": [
     "Functions/Database/M_ReadEntries.ts",

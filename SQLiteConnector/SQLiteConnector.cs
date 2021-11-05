@@ -7,6 +7,7 @@
 //-----------------------------------------------------------------------
 
 using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -48,6 +49,9 @@ namespace SQLiteConnector
         private readonly RequestListener requestListener = new RequestListener();
         private readonly ShutdownListener shutdownListener = new ShutdownListener();
 
+        private readonly PerformanceCounter _cpuUsage = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+        private DateTime _startup;
+
         // Config listener to listen to /Config extension changes
         private readonly ConfigListener configListener = new ConfigListener();
         
@@ -65,6 +69,8 @@ namespace SQLiteConnector
                 // Configure config listener
                 ConfigListenerSettings settings = ConfigListenerSettings.Default;
                 TcHmiApplication.AsyncHost.RegisterListener(TcHmiApplication.Context, configListener, settings);
+
+                _startup = DateTime.Now;
 
                 // Add event handlers
                 this.requestListener.OnRequest += this.OnRequest;
@@ -241,12 +247,17 @@ namespace SQLiteConnector
         {
 
 
-            //    ValueExtensions.Deserialize(ValueJsonConverter.Converter, JsonConvert.SerializeObject(Machine));
+            var diagObject = new Value
+            {
+                { "cpuUsage", Math.Truncate(100*_cpuUsage.NextValue())/100 },
+                { "sinceStartup", DateTime.Now - _startup },
+                { "databaseCount", Globals.diagnostics.databaseCount},
+                { "queryCount", Globals.diagnostics.queryCount }
+            };
 
-
-            var readValue = ValueExtensions.FromJson(JsonConvert.SerializeObject(Globals.diagnostics));
-            command.ReadValue = readValue.ResolveBy(command.Path);
-
+            // ResolveBy allows subsymbols of objects to be accessed directly
+            
+            command.ReadValue = diagObject.ResolveBy(command.Path);
             command.ExtensionResult = Convert.ToUInt32(ExtensionErrorValue.HmiExtSuccess);
             return ErrorValue.HMI_SUCCESS;
         }
