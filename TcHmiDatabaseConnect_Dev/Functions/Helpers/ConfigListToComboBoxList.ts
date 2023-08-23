@@ -1,4 +1,4 @@
-﻿module TcHmi {
+module TcHmi {
     export module Functions {
         export module TcHmiDatabaseConnect_Dev {
             export function ConfigListToComboBoxList(ConfigEntry_List: Array<any>) {

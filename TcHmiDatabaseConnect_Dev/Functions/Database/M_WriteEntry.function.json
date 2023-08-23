@@ -1,4 +1,4 @@
-﻿{
+{
   "function": {
     "name": "M_WriteEntry",
     "namespace": "TcHmi.Functions.TcHmiDatabaseConnect_Dev",

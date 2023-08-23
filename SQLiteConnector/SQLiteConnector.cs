@@ -49,12 +49,14 @@ namespace SQLiteConnector
         private readonly RequestListener requestListener = new RequestListener();
         private readonly ShutdownListener shutdownListener = new ShutdownListener();
 
+        // 2.0.0.0 API, listener is automatically register by default, with default settings, similair to Request and Shutdown listeners
+        // ResgiterListener does not need to be called. See API changes for more info
+        // TwinCAT\Functions\TE2000-HMI-Engineering\Infrastructure\TcHmiServer\docs
+        private readonly ConfigListener _configListener = new ConfigListener(); 
+
         private readonly PerformanceCounter _cpuUsage = new PerformanceCounter("Processor", "% Processor Time", "_Total");
         private DateTime _startup;
 
-        // Config listener to listen to /Config extension changes
-        private readonly ConfigListener configListener = new ConfigListener();
-        
 
         // Create Dynamic Symbol vars symbols provider and schema generator
         public static DynamicSymbolsProvider provider = null;
@@ -65,18 +67,15 @@ namespace SQLiteConnector
         {
             try
             {
-
-                // Configure config listener
-                ConfigListenerSettings settings = ConfigListenerSettings.Default;
-                TcHmiApplication.AsyncHost.RegisterListener(TcHmiApplication.Context, configListener, settings);
-
+                // Uncomment to debug init phase
+                //TcHmiApplication.AsyncDebugHost.WaitForDebugger(true);
                 _startup = DateTime.Now;
 
-                // Add event handlers
+                // Add listener handlers to existing registered listeners
                 this.requestListener.OnRequest += this.OnRequest;
                 this.shutdownListener.OnShutdown += this.OnShutdown;
-                this.configListener.BeforeChange += this.BeforeChange;
-                this.configListener.OnChange += this.OnChange;
+                this._configListener.BeforeChange += this.BeforeChange;
+                this._configListener.OnChange += this.OnChange;
 
                 
                 // Create a new empty 'DynamicSymbolsProvider'
@@ -103,6 +102,7 @@ namespace SQLiteConnector
         private void BeforeChange(object sender, TcHmiSrv.Core.Listeners.ConfigListenerEventArgs.BeforeChangeEventArgs e)
         {
             string path = e.Path;
+            
             Value value = e.Value;
 
             // Use pattern to find path without array index if value changed/added was an index in an array of <>

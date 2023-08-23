@@ -1,4 +1,4 @@
-﻿module TcHmi {
+module TcHmi {
     export module Functions {
         export module TcHmiDatabaseConnect_Dev {
             export function M_WriteEntry(TargetDatabaseHandler:any,zonename:any,temperature:any) {

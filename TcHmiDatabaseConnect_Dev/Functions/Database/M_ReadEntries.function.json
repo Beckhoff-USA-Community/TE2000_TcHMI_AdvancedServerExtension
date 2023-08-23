@@ -1,4 +1,4 @@
-﻿{
+{
   "function": {
     "name": "M_ReadEntries",
     "namespace": "TcHmi.Functions.TcHmiDatabaseConnect_Dev",
