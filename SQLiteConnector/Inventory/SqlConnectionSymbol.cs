@@ -45,13 +45,13 @@ namespace SQLiteConnector
                 string sql = "create table tempzones (timestamp INTEGER ,zonename varchar(20), temperature float)";
                 SqliteCommand command = new SqliteCommand(sql, connection);
                 command.ExecuteNonQuery();
-                sql = "insert into " + tableName + " (timestamp, zonename, temperature) values (" + _currentTime +  ",' Zone1', 32.1)";
+                sql = "insert into " + tableName + " (timestamp, zonename, temperature) values (" + _currentTime + ", 'Zone 1', 32.1)";
                 command = new SqliteCommand(sql, connection);
                 command.ExecuteNonQuery();
-                sql = "insert into " + tableName + " (timestamp, zonename, temperature) values (" + _currentTime + ",' Zone2', 35.1)";
+                sql = "insert into " + tableName + " (timestamp, zonename, temperature) values (" + _currentTime + ", 'Zone 2', 35.1)";
                 command = new SqliteCommand(sql, connection);
                 command.ExecuteNonQuery();
-                sql = "insert into " + tableName + " (timestamp, zonename, temperature) values (" + _currentTime + ",' Zone3', 36.2)";
+                sql = "insert into " + tableName + " (timestamp, zonename, temperature) values (" + _currentTime + ", 'Zone 3', 36.2)";
                 command = new SqliteCommand(sql, connection);
                 command.ExecuteNonQuery();
                 connection.Close();

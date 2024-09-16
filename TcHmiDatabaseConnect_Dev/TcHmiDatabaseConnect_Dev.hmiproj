@@ -22,7 +22,7 @@
     <HmiCommunicationRouterPort>10117</HmiCommunicationRouterPort>
     <HmiCommunicationServerAuthPort>13003</HmiCommunicationServerAuthPort>
     <HmiInitial>1.12.742.5</HmiInitial>
-    <HmiRecent>1.12.760.44</HmiRecent>
+    <HmiRecent>1.12.762.42</HmiRecent>
     <HmiServerNodeAdvancedView>False</HmiServerNodeAdvancedView>
     <TcHmiDirectory>$(registry:HKEY_CURRENT_USER\Software\Beckhoff\TwinCAT3\3.1@InstallDir)\..\Functions\TE2000-HMI-Engineering</TcHmiDirectory>
     <TcHmiDirectory Condition="'$(TcHmiDirectory)'==''">$(registry:HKEY_LOCAL_MACHINE\Software\Beckhoff\TwinCAT3\3.1@InstallDir)\..\Functions\TE2000-HMI-Engineering</TcHmiDirectory>

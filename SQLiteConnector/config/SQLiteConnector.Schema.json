@@ -18,16 +18,7 @@
             "additionalItems": {
                 "configDescription": "DESC_DATABASES"
             }
-        },
-        "CONFIGENTRY": {
-            "type": "integer",
-            "configDescription": "DESC_CONFIGENTRY",
-            "title": "DESC_CONFIGENTRY",
-            "hidden": false,
-            "default": 0,
-            "displayClass": "Primitive Config Entry"
         }
-
     }
 
 }

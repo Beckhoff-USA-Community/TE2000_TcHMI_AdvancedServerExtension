@@ -1,8 +1,8 @@
 {
   "$schema": "ExtensionSettings.Schema.json",
   "guid": "86ee8a0d-2c65-4095-bfa4-39c8c7070388",
-  "version": "1.0.0.0",
-  "configVersion": "1.0.0.51",
+  "version": "1.1.0.0",
+  "configVersion": "1.0.0.54",
   "symbols": {
     "ListSymbols": {
       "readValue": {

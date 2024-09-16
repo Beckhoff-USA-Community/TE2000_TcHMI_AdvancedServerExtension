@@ -10,6 +10,7 @@ using System;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using TcHmiSrv.Core;
@@ -80,6 +81,15 @@ namespace SQLiteConnector
                 
                 // Create a new empty 'DynamicSymbolsProvider'
                 SQLiteConnector.provider = new DynamicSymbolsProvider();
+
+                // Check for existing extension domain folder, if none then create
+                var workingDir = Path.Combine(Directory.GetCurrentDirectory(), TcHmiApplication.Context.Domain);
+                if (!Directory.Exists(workingDir))
+                {
+                    Directory.CreateDirectory(workingDir);
+                }
+
+                Directory.SetCurrentDirectory(workingDir);
 
                 this.generator.GenerationProviders.Add(TcHmiJSchemaGenerator.DefaultEnumGenerationProvider);
 
